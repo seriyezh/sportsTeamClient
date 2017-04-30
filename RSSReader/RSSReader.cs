@@ -1,31 +1,31 @@
 ﻿using IRSSReader;
-using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using RSSReader.Entities;
 using System.Net.Http;
-using System.Xml.Linq;
+using System.IO;
 
 namespace RSSReader
 {
-    public class RSSReader : IRSSReader.IRSSReader
-    {
-        public string _rssUri = "http://www.hclokomotiv.ru/news/news/rss/";
+	public class RSSReader : IRSSReader.IRSSReader
+	{
+		private INewsParser _newsParser;
+		private IMapping _newsMapping;
 
-        public async Task<ICollection<News>> GetNews()
-        {
-            HttpClient webClient = new HttpClient();
+		public RSSReader(INewsParser newsParser, IMapping newsMapping)
+		{
+			this._newsParser = newsParser;
+			this._newsMapping = newsMapping;
+		}
 
-            var streamNews = await webClient.GetStreamAsync(_rssUri);
+		public async Task<ICollection<News>> GetNews()
+		{
+			HttpClient webClient = new HttpClient();
+			Stream streamNews = await webClient.GetStreamAsync(this._newsMapping.RssUri);
 
-            var doc = XDocument.Load(streamNews);
+			ICollection<News> news = this._newsParser.Parse(streamNews);
 
-            var news = doc.Root.Descendants("News");
-
-            return new List<News> { };
-        }
-    }
+			return news;
+		}
+	}
 }

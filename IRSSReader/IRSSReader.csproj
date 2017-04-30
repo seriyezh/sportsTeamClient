@@ -86,6 +86,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMapping.cs" />
+    <Compile Include="INewsParser.cs" />
     <Compile Include="IRSSReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

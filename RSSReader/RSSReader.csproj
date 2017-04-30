@@ -90,6 +90,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LokoNewsMapping.cs" />
+    <Compile Include="NewsParser.cs" />
     <Compile Include="RSSReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
