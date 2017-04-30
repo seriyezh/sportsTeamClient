@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSSReader.Entities", "RSSRe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewsModule", "NewsModule", "{8ACDAA72-4C61-4946-BA73-35A83E4E0878}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTestApp1\UnitTests.csproj", "{B56CE95F-EC8F-4E66-A2A1-2FC817198B9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{B56CE95F-EC8F-4E66-A2A1-2FC817198B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
