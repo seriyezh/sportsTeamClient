@@ -5,11 +5,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:WinRTXamlToolkit.Controls"
+	xmlns:Views="using:WindowsPhoneApp.Views"
+	xmlns:ViewModels="using:WindowsPhoneApp.ViewModels"
     x:Class="WindowsPhoneApp.MainPage"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	DataContext="{Binding News, Source={StaticResource Locator}}">
 
     <Pivot Title="HC LOKOMOTIV">
+		<PivotItem Header="news">
+			<ListView ItemsSource="{Binding Path=News}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<StackPanel>
+							<TextBlock Text="{Binding Title}"/>
+							<TextBlock Text="{Binding Date}"/>
+							<TextBlock Text="{Binding Description}"/>
+						</StackPanel>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</PivotItem>
         <PivotItem Header="schedule">
             <Grid>
 
